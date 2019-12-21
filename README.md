@@ -11,7 +11,7 @@
 [![Coveralls github](https://img.shields.io/coveralls/github/varunj166/mq-styled-components)](https://coveralls.io/github/varunj166/mq-styled-components?branch=master)
 
 <br />
-<br />
+
 </div>
 
 # Mq Styled Components <!-- omit in toc -->
