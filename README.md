@@ -22,8 +22,9 @@ Other similar libraries seem to have taken the approach of generating the entire
 
 By inserting a media query string inside of a CSS `@media` directive, your code stays clean and you retain the benefits of code-completion.
 
-## Table of Contents <!-- omit in toc -->
 ---
+
+## Table of Contents <!-- omit in toc -->
 
 - [Installation](#installation)
 - [Usage](#usage)
@@ -122,7 +123,7 @@ Mq.setBreakpoint('md', 800);
 
 This changes the 'md' breakpoint to 800.
 
-If you want to change multiple breakpoints, see ['changing multiple breakpoints' here](#changing-multiple-breakpoints)
+If you want to change multiple breakpoints, see ['changing multiple breakpoints' here](#changing-multiple-breakpoints).
 
 **NOTE: Changing a breakpoint anywhere in your code will change that breakpoint EVERYWHERE in your code. This way, your breakpoints will remain the same no matter where you've used `Mq`.**
 
