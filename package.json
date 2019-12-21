@@ -1,0 +1,46 @@
+{
+  "name": "mq-styled-components",
+  "version": "1.0.0",
+  "description": "Mq Styled Components is a very simple media query string generator designed to make using the CSS `@media` directive inside of a styled component's CSS rules ultra-easy.",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "tsc -p ./tsconfig.notests.json",
+    "tsc:rm": "rm -rf dist && tsc -p ./tsconfig.notests.json",
+    "tsc:w": "rm -rf dist && tsc -p ./tsconfig.notests.json -w",
+    "test": "jest",
+    "test:c": "jest --runInBand --no-cache",
+    "test:cov": "jest --runInBand --coverage --no-cache",
+    "test:v": "jest --runInBand --verbose",
+    "test:w": "jest --watchAll --runInBand --no-cache",
+    "test:wv": "jest --watchAll --runInBand --verbose",
+    "jest:cc": "jest --clear-cache",
+    "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls"
+  },
+  "keywords": [
+    "styled",
+    "components",
+    "media",
+    "query",
+    "queries",
+    "responsive"
+  ],
+  "author": "Varun Jain (varunj166)",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/varunj166/mq-styled-components.git"
+  },
+  "homepage": "https://github.com/varunj166/mq-styled-components#readme",
+  "files": [
+    "dist",
+    "index.d.ts",
+    "index.js"
+  ],
+  "devDependencies": {
+    "@types/jest": "^24.0.24",
+    "coveralls": "^3.0.9",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.2.0",
+    "typescript": "^3.7.3"
+  }
+}
