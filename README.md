@@ -67,7 +67,7 @@ const StyledDiv = styled.div`
   @media ${Mq.max.md} {
     display: none;
   }
-`
+`;
 ```
 
 The call to `Mq.max.md` will return the string: `'(max-width: 768px)'` (with the default 'md' breakpoint being 768px). So, for all window-widths less than or equal to 768px, the div will have a `display: none` css rule applied.
@@ -111,6 +111,8 @@ However, unlike Boostrap, you specify if you want a min-width or a max-width med
 
 ## Changing a single breakpoint
 
+**NOTE: If you wish to change a breakpoint, you should do so in your application's entry file (i.e. index.js/ts) *before any of your component code is run*. This will ensure that the breakpoint is updated first, and all subsequent calls to `Mq` will be using the same breakpoint data, no matter when or from where it is being called.**
+
 Changing a single breakpoint value is very easy with the use of Mq Styled Component's 'setBreakpoint' method.
 
 Use it like this:
@@ -125,11 +127,11 @@ This changes the 'md' breakpoint to 800.
 
 If you want to change multiple breakpoints, see ['changing multiple breakpoints' here](#changing-multiple-breakpoints).
 
-**NOTE: Changing a breakpoint anywhere in your code will change that breakpoint EVERYWHERE in your code. This way, your breakpoints will remain the same no matter where you've used `Mq`.**
-
 ---
 
 ## Changing multiple breakpoints
+
+**NOTE: If you wish to change breakpoints, you should do so in your application's entry file (i.e. index.js/ts) *before any of your component code is run*. This will ensure that the breakpoints are updated first, and all subsequent calls to `Mq` will be using the same breakpoint data, no matter when or from where it is being called.**
 
 You may wish to change multiple breakpoints all at once. Mq Styled Components makes that easy, too, with the use of the 'setBreakpoints' method.
 
@@ -138,8 +140,7 @@ Use it like this:
 ```javascript
 import { Mq } from 'mq-styled-components';
 
-Mq.setBreakpoints({
-  md: 800,
+Mq.setBreakpoints({  
   lg: 1050,
   xl: 1400
 });
@@ -147,8 +148,6 @@ Mq.setBreakpoints({
 
 - 'Mq.setBreakpoints' accepts an object whose keys are the breakpoints you wish to change, and whose values are the numerical value (in pixels) you want to change each breakpoint to.
 - Change just one breakpoint, or change them all -- 'Mq.setBreakpoints' will apply the changes to whichever breakpoints you've specified in the keys of your breakpoints object.
-  
-**NOTE: Changing breakpoints anywhere in your code will change that breakpoint EVERYWHERE in your code. This way, your breakpoints will remain the same no matter where you've used `Mq`.**
 
 ---
 

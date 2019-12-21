@@ -29,28 +29,40 @@ export class Mq {
    *
    * @member
    */
-  static get max() {
-    return {
-      sm: `(max-width: ${Mq._breakpoints.sm}px)`,
-      md: `(max-width: ${Mq._breakpoints.md}px)`,
-      lg: `(max-width: ${Mq._breakpoints.lg}px)`,
-      xl: `(max-width: ${Mq._breakpoints.xl}px)`
-    };
-  }
+  static max = {
+    get sm() {
+      return `(max-width: ${Mq._breakpoints.sm}px)`;
+    },
+    get md() {
+      return `(max-width: ${Mq._breakpoints.md}px)`;
+    },
+    get lg() {
+      return `(max-width: ${Mq._breakpoints.lg}px)`;
+    },
+    get xl() {
+      return `(max-width: ${Mq._breakpoints.xl}px)`;
+    }
+  };
 
   /**
    * Retrieves the string values for setting a min-width media query.
    *
    * @member
    */
-  static get min() {
-    return {
-      sm: `(min-width: ${Mq._breakpoints.sm}px)`,
-      md: `(min-width: ${Mq._breakpoints.md}px)`,
-      lg: `(min-width: ${Mq._breakpoints.lg}px)`,
-      xl: `(min-width: ${Mq._breakpoints.xl}px)`
-    };
-  }
+  static min = {
+    get sm() {
+      return `(min-width: ${Mq._breakpoints.sm}px)`;
+    },
+    get md() {
+      return `(min-width: ${Mq._breakpoints.md}px)`;
+    },
+    get lg() {
+      return `(min-width: ${Mq._breakpoints.lg}px)`;
+    },
+    get xl() {
+      return `(min-width: ${Mq._breakpoints.xl}px)`;
+    }
+  };
 
   /**
    * Set the value (in pixels) of one of the breakpoints.
