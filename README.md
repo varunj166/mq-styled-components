@@ -4,7 +4,7 @@
 
 <br />
 
-[![npm](https://img.shields.io/npm/v/react-proforma)](https://www.npmjs.com/package/mq-styled-components)
+[![npm](https://img.shields.io/npm/v/mq-styled-components)](https://www.npmjs.com/package/mq-styled-components)
 [![Travis (.com) branch](https://img.shields.io/travis/com/varunj166/mq-styled-components/master)](https://travis-ci.com/varunj166/mq-styled-components)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/mq-styled-components)
 ![Snyk Vulnerabilities for GitHub Repo](https://img.shields.io/snyk/vulnerabilities/github/varunj166/mq-styled-components)
