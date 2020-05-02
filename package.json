@@ -1,6 +1,6 @@
 {
   "name": "mq-styled-components",
-  "version": "1.1.1",
+  "version": "2.0.0",
   "description": "Mq Styled Components is a very simple media query string generator designed to make using the CSS `@media` directive inside of a styled component's CSS rules ultra-easy.",
   "main": "index.js",
   "scripts": {
