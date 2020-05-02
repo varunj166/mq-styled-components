@@ -31,16 +31,16 @@ export class Mq {
    */
   static max = {
     get sm() {
-      return `(max-width: ${Mq._breakpoints.sm}px)`;
+      return `@media (max-width: ${Mq._breakpoints.sm}px)`;
     },
     get md() {
-      return `(max-width: ${Mq._breakpoints.md}px)`;
+      return `@media (max-width: ${Mq._breakpoints.md}px)`;
     },
     get lg() {
-      return `(max-width: ${Mq._breakpoints.lg}px)`;
+      return `@media (max-width: ${Mq._breakpoints.lg}px)`;
     },
     get xl() {
-      return `(max-width: ${Mq._breakpoints.xl}px)`;
+      return `@media (max-width: ${Mq._breakpoints.xl}px)`;
     }
   };
 
@@ -51,16 +51,16 @@ export class Mq {
    */
   static min = {
     get sm() {
-      return `(min-width: ${Mq._breakpoints.sm}px)`;
+      return `@media (min-width: ${Mq._breakpoints.sm}px)`;
     },
     get md() {
-      return `(min-width: ${Mq._breakpoints.md}px)`;
+      return `@media (min-width: ${Mq._breakpoints.md}px)`;
     },
     get lg() {
-      return `(min-width: ${Mq._breakpoints.lg}px)`;
+      return `@media (min-width: ${Mq._breakpoints.lg}px)`;
     },
     get xl() {
-      return `(min-width: ${Mq._breakpoints.xl}px)`;
+      return `@media (min-width: ${Mq._breakpoints.xl}px)`;
     }
   };
 

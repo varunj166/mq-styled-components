@@ -26,6 +26,7 @@ By inserting a media query string inside of a CSS `@media` directive, your code 
 
 ## Table of Contents <!-- omit in toc -->
 
+- [Breaking in v2.0](#breaking-in-v20)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Default breakpoints](#default-breakpoints)
@@ -33,6 +34,11 @@ By inserting a media query string inside of a CSS `@media` directive, your code 
 - [Changing multiple breakpoints](#changing-multiple-breakpoints)
 - [Typescript](#typescript)
 - [Running tests](#running-tests)
+
+---
+
+## Breaking in v2.0
+- You no longer have to include the `@media` in your style rules. I realized after I created this package that the javascript tagged template literal was as flexible as a regular string template literal, so the returned string from Mq Styled Components can include the entire media query. See below for usage.
 
 ---
 
@@ -57,20 +63,20 @@ import styled from 'styled-components';
 import { Mq } from 'mq-styled-components';
 ```
 
-Then use `Mq` to retrieve a max-width or min-width media query string inside of a CSS `@media` directive within your CSS rules, inserted into a `${...}` inside the template string:
+Then use `Mq` to retrieve a max-width or min-width media query string within your CSS rules, inserted into a `${...}` inside the template string:
 
 ```javascript
 const StyledDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  @media ${Mq.max.md} {
+  ${Mq.max.md} {
     display: none;
   }
 `;
 ```
 
-The call to `Mq.max.md` will return the string: `'(max-width: 768px)'` (with the default 'md' breakpoint being 768px). So, for all window-widths less than or equal to 768px, the div will have a `display: none` css rule applied.
+The call to `Mq.max.md` will return the string: `'@media (max-width: 768px)'` (with the default 'md' breakpoint being 768px). So, for all window-widths less than or equal to 768px, the div will have a `display: none` css rule applied.
 
 Retrieve max-width media query strings with `Mq.max.XX`, and min-width media query strings with `Mq.min.XX`, where 'XX' is one of:
 - 'sm'
@@ -81,7 +87,7 @@ Retrieve max-width media query strings with `Mq.max.XX`, and min-width media que
 So, for example, to apply rules for window-widths greater than or equal to 'lg' size (which has a default of 992px), you would use a min-width media query, like this:
 
 ```javascript
-@media ${Mq.min.lg} {
+${Mq.min.lg} {
   /*  Your CSS rules here  */
 }
 ```

@@ -9,37 +9,37 @@ const breakpoints = {
 
 describe('Mq class -- max-width media queries', () => {
   it('Returns the correct media query string -- sm', () => {
-    expect(Mq.max.sm).toBe(`(max-width: ${breakpoints.sm}px)`);
+    expect(Mq.max.sm).toBe(`@media (max-width: ${breakpoints.sm}px)`);
   });
 
   it('Returns the correct media query string -- md', () => {
-    expect(Mq.max.md).toBe(`(max-width: ${breakpoints.md}px)`);
+    expect(Mq.max.md).toBe(`@media (max-width: ${breakpoints.md}px)`);
   });
 
   it('Returns the correct media query string -- lg', () => {
-    expect(Mq.max.lg).toBe(`(max-width: ${breakpoints.lg}px)`);
+    expect(Mq.max.lg).toBe(`@media (max-width: ${breakpoints.lg}px)`);
   });
 
   it('Returns the correct media query string -- xl', () => {
-    expect(Mq.max.xl).toBe(`(max-width: ${breakpoints.xl}px)`);
+    expect(Mq.max.xl).toBe(`@media (max-width: ${breakpoints.xl}px)`);
   });
 });
 
 describe('Mq class -- min-width media queries', () => {
   it('Returns the correct media query string -- sm', () => {
-    expect(Mq.min.sm).toBe(`(min-width: ${breakpoints.sm}px)`);
+    expect(Mq.min.sm).toBe(`@media (min-width: ${breakpoints.sm}px)`);
   });
 
   it('Returns the correct media query string -- md', () => {
-    expect(Mq.min.md).toBe(`(min-width: ${breakpoints.md}px)`);
+    expect(Mq.min.md).toBe(`@media (min-width: ${breakpoints.md}px)`);
   });
 
   it('Returns the correct media query string -- lg', () => {
-    expect(Mq.min.lg).toBe(`(min-width: ${breakpoints.lg}px)`);
+    expect(Mq.min.lg).toBe(`@media (min-width: ${breakpoints.lg}px)`);
   });
 
   it('Returns the correct media query string -- xl', () => {
-    expect(Mq.min.xl).toBe(`(min-width: ${breakpoints.xl}px)`);
+    expect(Mq.min.xl).toBe(`@media (min-width: ${breakpoints.xl}px)`);
   });
 });
 
@@ -48,28 +48,28 @@ describe('Mq.setBreakpoint method', () => {
     Mq.resetBreakpoints();
     Mq.setBreakpoint('sm', 100);
 
-    expect(Mq.max.sm).toBe(`(max-width: 100px)`);
+    expect(Mq.max.sm).toBe(`@media (max-width: 100px)`);
   });
 
   it('Enables user to change a single breakpoint -- md', () => {
     Mq.resetBreakpoints();
     Mq.setBreakpoint('md', 100);
 
-    expect(Mq.max.md).toBe(`(max-width: 100px)`);
+    expect(Mq.max.md).toBe(`@media (max-width: 100px)`);
   });
 
   it('Enables user to change a single breakpoint -- lg', () => {
     Mq.resetBreakpoints();
     Mq.setBreakpoint('lg', 100);
 
-    expect(Mq.max.lg).toBe(`(max-width: 100px)`);
+    expect(Mq.max.lg).toBe(`@media (max-width: 100px)`);
   });
 
   it('Enables user to change a single breakpoint -- xl', () => {
     Mq.resetBreakpoints();
     Mq.setBreakpoint('xl', 100);
 
-    expect(Mq.max.xl).toBe(`(max-width: 100px)`);
+    expect(Mq.max.xl).toBe(`@media (max-width: 100px)`);
   });
 
   it('Throws an error if first argument is not a string', () => {
@@ -92,15 +92,15 @@ describe('Mq.setBreakpoints method', () => {
       xl: 400
     });
 
-    expect(Mq.max.sm).toBe(`(max-width: 100px)`);
-    expect(Mq.max.md).toBe(`(max-width: 200px)`);
-    expect(Mq.max.lg).toBe(`(max-width: 300px)`);
-    expect(Mq.max.xl).toBe(`(max-width: 400px)`);
+    expect(Mq.max.sm).toBe(`@media (max-width: 100px)`);
+    expect(Mq.max.md).toBe(`@media (max-width: 200px)`);
+    expect(Mq.max.lg).toBe(`@media (max-width: 300px)`);
+    expect(Mq.max.xl).toBe(`@media (max-width: 400px)`);
 
-    expect(Mq.min.sm).toBe(`(min-width: 100px)`);
-    expect(Mq.min.md).toBe(`(min-width: 200px)`);
-    expect(Mq.min.lg).toBe(`(min-width: 300px)`);
-    expect(Mq.min.xl).toBe(`(min-width: 400px)`);
+    expect(Mq.min.sm).toBe(`@media (min-width: 100px)`);
+    expect(Mq.min.md).toBe(`@media (min-width: 200px)`);
+    expect(Mq.min.lg).toBe(`@media (min-width: 300px)`);
+    expect(Mq.min.xl).toBe(`@media (min-width: 400px)`);
 
     Mq.resetBreakpoints();
   });
