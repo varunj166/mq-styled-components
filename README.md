@@ -20,7 +20,7 @@ Mq Styled Components is a very simple media query string generator designed to m
 
 Other similar libraries seem to have taken the approach of generating the entire media query for you, but I found that to be problematic because not only does it look unfamiliar to those who know CSS well, but you also lose the code-completion that your IDE offers. 
 
-By inserting a media query string inside of a CSS `@media` directive, your code stays clean and you retain the benefits of code-completion.
+By inserting a media query string inside of your normal CSS style rules, your code stays clean and you retain the benefits of code-completion.
 
 ---
 
