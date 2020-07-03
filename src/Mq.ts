@@ -1,4 +1,4 @@
-type BreakpointsType = 'sm' | 'md' | 'lg' | 'xl';
+type BreakpointsType = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 type SetBreakpointsObjType = {
   [key in BreakpointsType]?: number;
 };
@@ -10,6 +10,7 @@ type SetBreakpointsObjType = {
  * and Mq.setBreakpoints.
  *
  * Default breakpoints:
+ * - extra-small (xs): 375px
  * - small (sm): 576px
  * - medium (md): 768px
  * - large (lg): 992px
@@ -18,6 +19,7 @@ type SetBreakpointsObjType = {
 export class Mq {
   /**@private*/
   private static _breakpoints = {
+    xs: 375,
     sm: 576,
     md: 768,
     lg: 992,
@@ -30,6 +32,9 @@ export class Mq {
    * @member
    */
   static max = {
+    get xs() {
+      return `@media (max-width: ${Mq._breakpoints.xs}px)`;
+    },
     get sm() {
       return `@media (max-width: ${Mq._breakpoints.sm}px)`;
     },
@@ -50,6 +55,9 @@ export class Mq {
    * @member
    */
   static min = {
+    get xs() {
+      return `@media (min-width: ${Mq._breakpoints.xs}px)`;
+    },
     get sm() {
       return `@media (min-width: ${Mq._breakpoints.sm}px)`;
     },
@@ -67,26 +75,33 @@ export class Mq {
   /**
    * Set the value (in pixels) of one of the breakpoints.
    *
-   * @param {string} breakpoint - The breakpoint you wish to set. One of: 'sm', 'md', 'lg', 'xl'.
+   * @param {string} breakpoint - The breakpoint you wish to set. One of: 'xs', 'sm', 'md', 'lg', 'xl'.
    * @param {number} value - The value in pixels you wish to assign to that breakpoint.
    */
   static setBreakpoint(breakpoint: BreakpointsType, value: number) {
     if (typeof breakpoint === 'string' && typeof value === 'number') {
       const { _breakpoints } = Mq;
       switch (breakpoint) {
+        case 'xs':
+          _breakpoints.xs = value;
+          break;
         case 'sm':
           _breakpoints.sm = value;
+          break;
         case 'md':
           _breakpoints.md = value;
+          break;
         case 'lg':
           _breakpoints.lg = value;
+          break;
         case 'xl':
           _breakpoints.xl = value;
+          break;
         default:
       }
     } else {
       throw new Error(
-        'Must provide a string value for "size" and a number value for "number" to mq.setBreakpoint method.'
+        'Must provide a string value for "size" and a number value for "number" to Mq.setBreakpoint method.'
       );
     }
   }
@@ -94,7 +109,7 @@ export class Mq {
   /**
    * Set value values (in pixels) of multiple breakpoints.
    *
-   * @param {object} sizesObj - An object whose keys are the breakpoints you wish to change (i.e. one of: 'sm', 'md', 'lg', 'xl'),
+   * @param {object} sizesObj - An object whose keys are the breakpoints you wish to change (i.e. one of: 'xs', 'sm', 'md', 'lg', 'xl'),
    * and whose values are the values (in pixels) to be assigned to the respective breakpoints.
    */
   static setBreakpoints(breakpointsObj: SetBreakpointsObjType) {
@@ -108,6 +123,13 @@ export class Mq {
         // and methods of varying types, so no single index signature
         // can be declared.
         switch (breakpoints[i]) {
+          case 'xs':
+            if (typeof breakpointsObj.xs !== 'number')
+              throw new Error(
+                'The value associated with each breakpoint must be a number.'
+              );
+            _breakpoints.xs = breakpointsObj.xs;
+            break;
           case 'sm':
             if (typeof breakpointsObj.sm !== 'number')
               throw new Error(
@@ -140,7 +162,7 @@ export class Mq {
       }
     } else {
       throw new Error(
-        'Must provide an object containing breakpoints as keys and numerical values as values to mq.setBreakpoints.'
+        'Must provide an object containing breakpoints as keys and numerical values as values to Mq.setBreakpoints.'
       );
     }
   }
@@ -149,6 +171,7 @@ export class Mq {
    * Returns all breakpoints to their default values.
    *
    * {
+   *  xs: 375,
    *  sm: 576,
    *  md: 768,
    *  lg: 992,
@@ -157,6 +180,7 @@ export class Mq {
    */
   static resetBreakpoints() {
     Mq._breakpoints = {
+      xs: 375,
       sm: 576,
       md: 768,
       lg: 992,

@@ -1,6 +1,7 @@
 import { Mq } from '../Mq';
 
 const breakpoints = {
+  xs: 375,
   sm: 576,
   md: 768,
   lg: 992,
@@ -8,6 +9,10 @@ const breakpoints = {
 };
 
 describe('Mq class -- max-width media queries', () => {
+  it('Returns the correct media query string -- xs', () => {
+    expect(Mq.max.xs).toBe(`@media (max-width: ${breakpoints.xs}px)`);
+  });
+
   it('Returns the correct media query string -- sm', () => {
     expect(Mq.max.sm).toBe(`@media (max-width: ${breakpoints.sm}px)`);
   });
@@ -26,6 +31,10 @@ describe('Mq class -- max-width media queries', () => {
 });
 
 describe('Mq class -- min-width media queries', () => {
+  it('Returns the correct media query string -- xs', () => {
+    expect(Mq.min.xs).toBe(`@media (min-width: ${breakpoints.xs}px)`);
+  });
+
   it('Returns the correct media query string -- sm', () => {
     expect(Mq.min.sm).toBe(`@media (min-width: ${breakpoints.sm}px)`);
   });
@@ -44,6 +53,13 @@ describe('Mq class -- min-width media queries', () => {
 });
 
 describe('Mq.setBreakpoint method', () => {
+  it('Enables user to change a single breakpoint -- xs', () => {
+    Mq.resetBreakpoints();
+    Mq.setBreakpoint('xs', 100);
+
+    expect(Mq.max.xs).toBe(`@media (max-width: 100px)`);
+  });
+
   it('Enables user to change a single breakpoint -- sm', () => {
     Mq.resetBreakpoints();
     Mq.setBreakpoint('sm', 100);
@@ -86,23 +102,31 @@ describe('Mq.setBreakpoint method', () => {
 describe('Mq.setBreakpoints method', () => {
   it('Allows user to set multiple breakpoints at once', () => {
     Mq.setBreakpoints({
+      xs: 50,
       sm: 100,
       md: 200,
       lg: 300,
       xl: 400
     });
 
+    expect(Mq.max.xs).toBe(`@media (max-width: 50px)`);
     expect(Mq.max.sm).toBe(`@media (max-width: 100px)`);
     expect(Mq.max.md).toBe(`@media (max-width: 200px)`);
     expect(Mq.max.lg).toBe(`@media (max-width: 300px)`);
     expect(Mq.max.xl).toBe(`@media (max-width: 400px)`);
 
+    expect(Mq.min.xs).toBe(`@media (min-width: 50px)`);
     expect(Mq.min.sm).toBe(`@media (min-width: 100px)`);
     expect(Mq.min.md).toBe(`@media (min-width: 200px)`);
     expect(Mq.min.lg).toBe(`@media (min-width: 300px)`);
     expect(Mq.min.xl).toBe(`@media (min-width: 400px)`);
 
     Mq.resetBreakpoints();
+  });
+
+  it('Throws an error if value associated with breakpoint is not a number -- xs', () => {
+    // @ts-ignore
+    expect(() => Mq.setBreakpoints({ xs: 'test' })).toThrow();
   });
 
   it('Throws an error if value associated with breakpoint is not a number -- sm', () => {

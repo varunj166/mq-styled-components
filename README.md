@@ -79,6 +79,7 @@ const StyledDiv = styled.div`
 The call to `Mq.max.md` will return the string: `'@media (max-width: 768px)'` (with the default 'md' breakpoint being 768px). So, for all window-widths less than or equal to 768px, the div will have a `display: none` css rule applied.
 
 Retrieve max-width media query strings with `Mq.max.XX`, and min-width media query strings with `Mq.min.XX`, where 'XX' is one of:
+- 'xs'
 - 'sm'
 - 'md'
 - 'lg'
@@ -104,6 +105,7 @@ They are (in pixels):
 
 ```json
 {
+  "xs": 375,
   "sm": 576,
   "md": 768,
   "lg": 992,
